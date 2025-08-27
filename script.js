@@ -66,6 +66,10 @@ idgetElement("product-container").addEventListener("click", function(event){
         coins = coins - 20;
         coinElem.innerText = coins;
 
+        // Get current time
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
         const historyElem = idgetElement("call-history");
         const entry = document.createElement("div");
         entry.innerHTML = `<div class="rounded-xl flex justify-between p-4 shadow mt-3">
@@ -73,6 +77,7 @@ idgetElement("product-container").addEventListener("click", function(event){
               <h1 class="font-bold">${serviceName}</h1>
               <span class="text-[#5C5C5C]">${serviceNumber}</span>
             </div>
+            <div class="text-xs text-gray-500 flex items-end">${timeString}</div>
           </div>`;
         historyElem.appendChild(entry);
     }
