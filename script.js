@@ -44,8 +44,6 @@ idgetElement("product-container").addEventListener("click", function(event) {
     }
 });
 
-
-
 idgetElement("product-container").addEventListener("click", function(event){
     if(event.target.className.includes("call-btn")){
         // alert("call btn clicked");
@@ -66,26 +64,26 @@ idgetElement("product-container").addEventListener("click", function(event){
         coins = coins - 20;
         coinElem.innerText = coins;
 
-        // Get current time
+        // Get local current time
         const now = new Date();
         const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
         const historyElem = idgetElement("call-history");
         const entry = document.createElement("div");
-        entry.innerHTML = `<div class="rounded-xl flex justify-between p-4 shadow mt-3">
+        entry.innerHTML = `<div class="rounded-xl flex justify-between items-center p-4 shadow mt-5 bg-white">
             <div>
               <h1 class="font-bold">${serviceName}</h1>
               <span class="text-[#5C5C5C]">${serviceNumber}</span>
             </div>
-            <div class="text-xs text-gray-500 flex items-end">${timeString}</div>
+            <div class="text-sm font-semibold text-gray-500 flex items-center">${timeString}</div>
           </div>`;
         historyElem.appendChild(entry);
     }
 })
 
+// Remove call history 
 
 const clearBtn = idgetElement("clear-history-btn");
-
     clearBtn.addEventListener("click", function() {
         const historyElem = idgetElement("call-history");
         while (historyElem.children.length > 1) {
